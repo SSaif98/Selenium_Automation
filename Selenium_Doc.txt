@@ -1,0 +1,256 @@
+ChromeDriver Class: 
+> This class has all the methods which will help us in automate in chrome browser.
+
+ChromeDriver driver = new ChromeDriver();
+Driver object has access to all the methods chrome driver class.
+
+> Selenium Scans from Top Left
+
+Interface:
+> An interface is a group of related methods with empty bodies. It's class 'responsibility to implement the methods declared in the inteface.
+> Interface always tells the methods name to class and then its class responsibility to implement the method.
+
+WebDriver Interface:
+> Classes like ChromeDriver etc implement webdriver interface and provide their own implementation to the webdriver method.
+> Webdriver hold both ChromeDriver Class Method and Webdriver Method
+> ChromeDriver Class has some personal methods that can not be excessed through firefox for this purpose we need to implement webdriver interface.
+
+		ChromeDriver driver = new ChromeDriver();
+		* It means we can have access to ChromeDriver Class Methods only.
+
+		WebDriver driver = new ChromeDriver();
+		* It means we can have access to ChromeDriver Class Methods which are defined in webdriver interface.
+
+driver is an obj of chrome driver class but it is implmenting WebDriver interface so the webdriverinterface exposed the FindElement and the chrome driver class has it body.
+
+We are not relate to Webdriver Interface here. But Still Code will run and execute the methods successfully...How? Because in ChromeDriver class we dont have methds like:
+getTitle(), getCurrentUrl() etc. These methods are absolutely relate to the WebDriver Interface.
+
+> Difference between driver.close() and driver.quite()
+	> driver.close():
+		> Close the current window, quitting the browser if it's the last window currently open.
+	> driver.quite():
+		> Quits this driver, closing every associated window.
+
+CORE JAVA:
+1. Variables & Data Types
+2. Arrays
+3. Loops and Conditions
+4. Strings and Its Functions
+5. Array Lists
+6. Array List operations and conversation of Array to List
+7. Declaring Method
+8. Accessing Methods in Class and Static Keyword
+
+- It you want to access the methods of the class you have to create object of the class like:
+	> obj.method
+- util is a pkg which hold many classes like ArrayList etc.
+- If we create do like this:
+	String s= "abc";
+	String s1= "abc";
+		> Now in above case java will not create 2 separate variable and allocate mamory to it instead it creates only one.
+
+- If we create do like this:
+	String s= new String("abc");
+	String s1= new String("abc");
+		> Now in above case java will create 2 separate objects as we are explicitely saying new keyword
+- String is an object that represents sequence of characters
+- Methods:
+	> public methods can not directly be access in the main class but we have to create Object of it in main class in order to use the method.
+	> Public methods can use in any class with in the project by creating object.
+	> If we use Static keyword then this method will be converted into class method
+	
+There are four types of Java access modifiers:
+
+Private: 
+The access level of a private modifier is only within the class. It cannot be accessed from outside the class.
+
+Default: 
+The access level of a default modifier is only within the package. It cannot be accessed from outside the package. 
+If you do not specify any access level, it will be the default.
+
+Protected: 
+The access level of a protected modifier is within the package and outside the package through child class. 
+If you do not make the child class, it cannot be accessed from outside the package.
+
+Public: 
+The access level of a public modifier is everywhere. 
+It can be accessed from within the class, outside the class, within the package and outside the package.
+
+> SELENIUM LOCATOR:
+1. ID
+2. Class Name
+3. Tag Name
+4. Link Text   (It can only be accessible if the link text is in ANCHOR tag <a></a>)
+5. Xpath
+6. Css Selector
+7. Name
+8. Partial Link
+
+Xpath:
+
+1. //tagname[@attribute = 'value']    or //tagname
+By Indexing:
+2. //input[@type= 'text'][3]
+
+2.1 If found 2 similar xpaths then :
+(xpath)[2]    
+	If the above syntax is not acceptable then you may write like thic:
+	Xpath Xpath
+	//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value = 'UDR']
+
+
+3. Travering by Parent to child:  //form/div/button[2]
+4. Regular Expression: //button[contains(@name, 'submit')]               //span[contains (text(),'User')]
+5. //div[@class='pwd']/button[1] 
+6. By Btton Text : //button[text()= 'login']
+7. If we wre only wanted a thing then we can write like:
+	//*[text() = 'Logout'];
+	//*[@placeholder = 'Name'];
+	
+8. Absolute Xpath:  It means we will start from root and traverse to it child. We have to start it like that > /Head/Body/Header
+9. Relative Xpath: We start travering from the middle of the DOM : We have to start it like that > //body/
+10. Sibling Travering:
+	driver.findElement(By.xpath("//header/div/button[1]/following-sibling::button[2]
+	//Parent_tag/child_tag/child_tag/following-sibling::sibling_tag
+
+11. Parent Travering:
+	//header/div/button[2]/parent::div
+		//Parent_tag/child_tag/child_tag/parent::parent_tag
+
+12. Parent-Child-Parent-Child
+	//header/div/button[2]/parent::div/button[2]/following-sibling::button
+			//Parent_tag/child_tag/child_tag/parent::parent_tag/child_tag/following-sibling::sibling_tag
+
+	
+$x('//button[@class="reset-pwd-btn"]')
+
+
+Css Selector:
+
+1. tagname.classname
+2. tagname#id
+3. .classname
+4. tagname[attribute= 'value'];
+5. By Indexing:  input[type='text']:nth-child(3)
+6. Travering by Parent to child:  form p
+7. Regular Expression: input[type* = 'pass']
+FOR CONSOLE:  $('p.error')
+
+
+> Implicit Wait
+	> It will wait for the time that we have provided if it found in less time then it will go ahead it will not wait for the time to complete.
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+	> It is used when we are waiting for something that is currently not on page
+
+https://rahulshettyacademy.com/#/index
+
+
+		//If we use bellow method then it will wait until complete page and its content is loaded
+		In get method their is in built syncronization wait
+		driver.get("https://www.google.com/");
+		driver.manage().window().maximize();
+		
+		//If we use bellow method then it will wait for the  page to be open as soon as it is loaded it will move to other script
+		driver.navigate().to("https://rahulshettyacademy.com/AutomationPractice/");
+\https://rahulshettyacademy.com/dropdownsPractise/
+
+
+
++ Static Dropdown
++ Dynamic Dropdown
++ Ckboxes
++ Radio Buttons
++ Text Buttons
++ Alert-Java Popups
++ Selenium WebDriver Form Method
+
+
+Static Dropdown:
+	> A dropdown in which options are fixed.
+	
+		WebElement staticOptions = driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency"));
++ Select is a class which holds methods to used for static drop downs and it wants webelement to be proccessed
+		Select staticDropDown = new Select(staticOptions);
+		staticDropDown.selectByIndex(2);
+		
+		> Select By:
+		selectByIndex , selectByValue, selectByVisibleText
+		>If the static dropdown is multi select then we have options:
+			> deselectByIndex , deselectByValue, deselectByVisibleText, deselectall
+		> To get the selected option:
+			> getFirstSelectedOption
+			> getAllSelectedOptions
+			
+AutoSugestive Drop Down:
+	> In this case we have to store the complete list in WebElement to iterate through the list get required item
+	
+		List<WebElement> countryList = driver.findElements(By.cssSelector("li[class= 'ui-menu-item'] a"));
+		
+		for (WebElement country: countryList) {
+			
+			if(country.getText().equalsIgnoreCase("Pakistan")) {
+				country.click();
+				break;
+			}
+		}
+
+If you want to count any thing that is appearing on screen many times and its type is similar:
+	driver.findElements(By.cssSelector(input[type='checkbox'])).size();
+
+JUNIT
+TestNG >  Testing frame used while building automation framework using Selenium
+	Adding Downloaded Jars of Selenium Java or TestNG:
+		> Right Click/Properties/Java Build Path/Libraries/Add External Jars
+
+
+Shift + Cnrtl + f
+
+> Debug Code:
+	> Add a Toggle Breaddown 
+	> Now the code will stop here and on pressing F6 it will step over it.
+	> Now press Resume button it will resume the test without any stop until it gets another toggle breakdown
+	
++++++++++++++++++++++++++++++++++++++++___________________________Synchronization in SELENIUM:+++++++++++++++++++++++++++++++++++++++___________________________
+
+1- Implicit Wait
+2- Explicit Wait
+3- Thread.Sleep
+4- Fluent Wait
+
+Implicit Wait:
+	It is defined globally.
+	If we have defined Implicit Wait then we are telling the browser that after clicking any thing wait for n number of time before doing any thing. 
+	If the thing appeared on screen with in the implicitlyWait time then it will not complete its time define. It will move to next script.
+
+	Advantages:
+	We are defining it globally.
+	Disadvantage:
+	Performance Issue can not be taken care.
+
+So what was the ideal strategy of using synchronization and selenium?
+You said that the implicit and explicit combination of this both is an ideal solution.
+	
+Scenario:
+	Suppose we have 100 test cases and each case will take 2-3 sec then we will use implicit wait. But now suppose a case has searching time of 15 sec then what
+	should we do if we increase the implicit wait then it will be increased for all 100 cases and the 99 cases should have executed in 2-3 and these cases are taking
+	more time which is wrong then we will not be aware of it. So for this purpose we will use Explicit Wait. It is used for specific case.
+
+Implicit Wait is listening to DOM continuously. While in Thread.sleep it only listen to after the time ise completed.
+
+2- Explicit Wait
+
+Explicit Wait can be achieved through 2 ways by WebDriver wait and Fluent Wait
+
+WebElement:		driver.findElement(By.xpath("//button[@class = 'promoBtn']")).click();
+Locator:		(By.xpath("//button[@class = 'promoBtn']"))
+
+WebDriverWait w = new WebDriverWait(driver,Duration.ofSeconds(5));	
+w.until(ExpectedConditions.visibilityOfElementLocated(By.className("promoInfo")));
+	
+Pros:
+- Only applied where we want to use it. So no performance issue.
+Cons:
+- more code
+	
+		

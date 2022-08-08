@@ -14,6 +14,7 @@ public class calender_ui {
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.get("https://www.path2usa.com/travel-companions");
 	
 		//14 August
 		driver.findElement(By.xpath(".//*[@id='travel_date']")).click();

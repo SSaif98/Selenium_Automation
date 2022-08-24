@@ -1,0 +1,13 @@
+
+List:
+List interface is used to create a list of elements(objects) that are associated with their index numbers.	
+
+ArrayList:
+ArrayList class is used to create a dynamic array that contains objects.
+
+Stream: 
+A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result. 
+The features of Java stream are – A stream is not a data structure instead it takes input from the Collections, Arrays or I/O channels.
+
+If we want all items in the list without any condition we may use map function it will map the stream then you can perform any function.
+If we want  items in the list with any condition we may use filter function it will filter out the stream then you can perform any function.
